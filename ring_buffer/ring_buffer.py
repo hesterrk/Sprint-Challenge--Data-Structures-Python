@@ -33,6 +33,55 @@ class RingBuffer:
 
         return all_items
 
+# WITH DLL
+
+# from DLL import DoublyLinkedList
+
+
+# class RingBuffer:
+#     def __init__(self, capacity):
+#         self.capacity = capacity
+#         self.storage = DoublyLinkedList()
+#         self.curr_node = None
+
+#     def append(self, item):
+#         # If there is room in the buffer
+#         if self.storage.length < self.capacity:
+#             # add item to the end of DLL
+#             self.storage.add_to_tail(item)
+#             # making newest item the tail node
+#             self.curr_node = self.storage.tail
+#             # print(self.storage.tail)
+
+#         # If limit is reached
+#         if self.storage.length == self.capacity:
+#             # print(self.storage)
+
+#             # assigning the node's value to new item
+#             self.curr_node.value = item
+#             print(self.curr_node)
+
+#             # if the current node we are on is the tail
+#             if self.curr_node == self.storage.tail:
+
+#                 # make the new item the head of DLL, overwritting the heads value
+#                 self.curr_node = self.storage.head
+
+#             else:
+#                 # increment along DLL if its full but the current node is not the tail
+#                 self.curr_node = self.curr_node.next
+#                 # print(self.curr_node)
+
+    # def get(self):
+    #     all_items = []
+
+    #     current = self.storage.head
+    #     while current is not None:
+    #         all_items.append(current.value)
+    #         current = current.next
+
+    #     return all_items
+
 
 buffer = RingBuffer(3)
 
