@@ -1,4 +1,5 @@
 import time
+from BST import BSTNode
 
 start_time = time.time()
 
@@ -19,21 +20,29 @@ duplicates = []  # Return the list of duplicates in this data structure
 #             duplicates.append(name_1)
 
 
-# The runtime for the above ^^ was: 6.062531232833862 seconds 
-# New Solution: BST
+# The runtime for the above ^^ was: 6.062531232833862 seconds
+# New Solution: using BST, runtime is: 0.11680889129638672 seconds
 
 
+# Making our root node the first name in names_1
+tree = BSTNode(names_1[0])
+
+
+# Inserting each name discluding the first name in names_1 into our BST
+for name in names_1[1:]:
+    tree.insert(name)
+
+
+# Going over names_2, checking if a name in names_2 is contained in our names_1 BST
+for name in names_2:
+    if tree.contains(name):
+        # placing the matching ones in duplicates list
+        duplicates.append(name)
 
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print(f"runtime: {end_time - start_time} seconds")
-
-
-
-
-
-
 
 
 # ---------- Stretch Goal -----------
